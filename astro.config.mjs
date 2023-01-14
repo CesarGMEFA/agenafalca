@@ -17,6 +17,7 @@ import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "http://127.0.0.1:3000/",
+  site: 'https://CesarGMEFA.github.io',
+  base: '/agenafalca',
   integrations: [tailwind(), react(), sitemap(), mdx(), compress()]
 });
