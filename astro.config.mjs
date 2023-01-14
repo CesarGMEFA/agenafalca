@@ -16,7 +16,12 @@ import mdx from "@astrojs/mdx";
 import compress from "astro-compress";
 
 // https://astro.build/config
+import vercel from "@astrojs/vercel/serverless";
+
+// https://astro.build/config
 export default defineConfig({
   site: 'https://CesarGMEFA.github.io',
-  integrations: [tailwind(), react(), sitemap(), mdx(), compress()]
+  integrations: [tailwind(), react(), sitemap(), mdx(), compress()],
+  output: "server",
+  adapter: vercel()
 });
