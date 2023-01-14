@@ -1,0 +1,58 @@
+---
+import { Image } from '@astrojs/image/components';
+import Container from "@components/container.astro";
+
+interface menuType {
+  title: string;
+  path: string;
+}
+
+const menuItems: menuType[] = [
+  {
+    title: "Acerce de nosotros",
+    path: "/about",
+  },
+  {
+    title: "Blog",
+    path: "/blog",
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+  },
+  {
+    title: "Socios",
+    path: "/partners",
+  },
+];
+---
+
+<!-- <Container>
+</Container> -->
+<footer class="flex flex-col items-center justify-center md:justify-between md:flex-row
+  px-7 py-10 mt-12
+  border-t-2 border-agena-UIblue dark:border-agena-red"
+>
+  <a href="/" class="text-md">
+    <span class="font-black text-agena-UIblue text-2xl sm:text-3xl">
+      AG<span class="text-agena-red">E</span>NAFALCA
+    </span>
+  </a>
+  
+  <ul class="flex flex-col md:flex-row md:gap-3">
+    {
+      menuItems.map((item, index): menuType => (
+        <li>
+          <a
+            href={item.path}
+            class="flex md:px-3 py-2 hover:text-agena-UIblue dark:hover:text-agena-red
+              focus:text-agena-UIblue dark:focus:text-agena-red
+            "
+          >
+            {item.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</footer>

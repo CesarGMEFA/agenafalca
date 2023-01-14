@@ -1,0 +1,43 @@
+---
+interface contactType {
+  field: string;
+  body: string;
+}
+
+const contact: contactType[] = [
+  {
+    field: "Direccion",
+    body: "Av. Girardot, Centro Comercial y Empresarial DORAL, piso 2, ofic. 10 de Punto Fijo. Falcón. Venezuela"
+  },
+  {
+    field: "Director principapl (CEO)",
+    body: "Dr. Pedro Pineda MSc"
+  },
+  {
+    field: "Email",
+    body: "email@address.com"
+  },
+  {
+    field: "Oficina",
+    body: "+58-269 2454663"
+  },
+  {
+    field: "Móvil",
+    body: "+58-414 6956907"
+  }
+]
+---
+
+<section class="contact max-w-2xl pt-8 pb-14 mx-auto md:pt-16 md:pb-24">
+  <h2
+    class="max-w-max mb-3 text-xl md:text-3xl lg:text-4xl font-bold border-b-2 border-agena-red dark:border-agena-UIblue">
+    Contacto
+  </h2>
+  {
+    contact.map( (info): contactType => (
+      <p class="mb-2 md:text-xl">
+        <strong>{info.field}:</strong> {info.body}
+      </p>
+    ))
+  }
+</section>

@@ -1,0 +1,45 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Button from "@components/ui/button.astro";
+import Contactform from "@components/contactform.astro";
+---
+
+<Layout title="Contact" icon="favicon.webp">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Contacto</Fragment>
+      <Fragment slot="desc">Estamos aquí para ayudarle.</Fragment>
+    </Sectionhead>
+    <main>
+      <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
+        <div>
+          <h2 class="font-medium text-2xl">Contact Astroship</h2>
+          <p class="text-lg leading-relaxed mt-3">
+            ¿Tiene algo que decir? Estamos aquí para ayudarle. Rellene el formulario o envíe correo electrónico o llame al teléfono.
+          </p>
+          <div class="mt-5">
+            <div class="flex items-center mt-2 space-x-2">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>1734 Sanfransico, CA 93063</span>
+            </div><div class="flex items-center mt-2 space-x-2">
+              <i class="fa-regular fa-envelope"></i>
+              <a href="mailto:hello@astroshipstarter.com">
+                hello@astroshipstarter.com
+              </a>
+            </div><div class="flex items-center mt-2 space-x-2">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:+1 (987) 4587 899">
+                +1 (987) 4587 899
+              </a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <Contactform />
+        </div>
+      </div>
+    </main>
+  </Container>
+</Layout>

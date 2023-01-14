@@ -1,0 +1,47 @@
+---
+interface serviceType {
+  icon: string;
+  service: string;
+}
+
+const services: serviceType[] = [
+  {
+    icon: "fa-solid fa-anchor-circle-check",
+    service: "Servicios marítimos especializados",
+  },
+  {
+    icon: "fa-solid fa-ship",
+    service: "Fletamentos",
+  },
+  {
+    icon: "fa-solid fa-scale-balanced",
+    service: "Asesoría legal profesional",
+  },
+  {
+    icon: "fa-solid fa-chart-simple",
+    service: "Consultoría empresarial",
+  },
+];
+---
+
+<section
+  class="service text-center pt-8 pb-14 md:pt-16 md:pb-28 flex flex-col items-center">
+  <h2
+    class="max-w-max text-xl md:text-3xl lg:text-4xl font-bold border-b-2 border-agena-UIblue dark:border-agena-red">
+    Áreas de servicios a la industria
+  </h2>
+  <section class="mt-6 md:mt-12 grid md:grid-cols-2">
+    {
+      services.map(({ icon, service }): serviceType => (
+        <div class="mb-6 flex flex-col items-center justify-center">
+          <i class={`${icon} text-6xl mb-3`} />
+          <p class="md:text-xl">{service}</p>
+        </div>
+      ))
+    }
+  </section>
+  <p class="pt-6 mx-auto max-w-4xl md:text-2xl">
+    Responsables de una coordinación fluida y precisa de todas las actividades
+    del barco dentro del puerto y fuera de este.
+  </p>
+</section>

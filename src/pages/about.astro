@@ -1,0 +1,58 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Hero from "@components/about/hero.astro";
+
+const values: string[] = [
+  "Seguridad",
+  "Calidad",
+  "Productividad",
+  "Respeto",
+  "Participación de la gente"
+]
+---
+
+<Layout title="Acerca de nosotros" icon={"favicon.webp"}>
+  <main class="font-medium">
+
+    <Hero />
+    <Container>
+
+      <section class="text-center py-12 flex justify-center flex-row flex-wrap lg:gap-10 lg:py-20">
+        <section class="mb-14 max-w-[554px]">
+          <h2 class="text-2xl border-b-2 border-agena-UIblue dark:border-agena-red mb-3">
+            ¿Por qué con nosotros?
+          </h2>
+          <p>
+            Somos una empresa en la que mantenemos relación cordiales con las autoridades portuarias y aduaneras, disponemos a la vez de alianzas y convenios comerciales con proveedores que añaden valor a sus operaciones en servicios especializados, oficinas de inspección, servicios de reparación y limpieza, suministros de provisiones, especialistas náuticos y proveedores de combustible
+          </p>
+        </section>
+        <section class="max-w-[554px]">
+          <h2 class="text-2xl border-b-2 border-agena-UIblue dark:border-agena-red mb-3">
+            Razones de trabajar con nosotros
+          </h2>
+          <p>
+            Otorgamos servicios de Agenciamiento Naviero, suministros de Provisiones, Recolección de Desechos no Peligrosos y de negociación en el sector marítimo seguridad, de calidad y con alta confiabilidad, contando para ello con aliados comerciales, de servicios y el mejor talento humano comprometido, para cumplir los mas exigente requisitos de nuestros clientes, las expectativas de los accionistas y siendo responsable con la comunidad en general.
+          </p>
+        </section>
+      </section>
+
+      <section class="text-center mx-auto mb-16 max-w-[554px]">
+        <h2 class="text-2xl border-b-2 border-agena-red dark:border-agena-UIblue mb-3">
+          Nuestra Visión
+        </h2>
+        <p>
+          Ser la decisión corporativa líder para el sector marítimo, consolidada y reconocida por la excelencia de sus servicios, capacidad de respuesta, empatía, orden, compromiso, siendo impulsores del cambio en el sector.
+        </p>
+        <p class="text-start mt-3">
+          <strong>Visión que llevamos a la par de nuestros valores:</strong>
+        </p>
+        <ul class="text-start list-disc px-5">
+          {
+            values.map( value => <li>{value}</li>)
+          }
+        </ul>
+      </section>
+    </Container>
+  </main>
+</Layout>

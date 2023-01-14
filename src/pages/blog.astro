@@ -1,0 +1,58 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import { getFormattedDate } from "@utils/all.ts";
+
+const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.publishDate).valueOf() -
+    new Date(a.frontmatter.publishDate).valueOf()
+);
+---
+<Layout title="Blog" icon={"favicon.webp"}>
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Nuestro Blog</Fragment>
+      <Fragment slot="desc">
+        Nosotros escribimos sobre la importancia de contar con una agencia naviera para el transporte de mercancías a nivel internacional, ya que ofrecen una amplia gama de servicios para garantizar una entrega segura y eficiente.
+      </Fragment>
+    </Sectionhead>
+    <main class="my-16">
+      <ul class="grid gap-16 max-w-4xl mx-auto">
+        {
+          posts.map((post, index) => (
+            <li>
+              <a href={post.url}>
+                <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+                  <img src={post.frontmatter.image} alt="Thumbnail"
+                    class="w-full rounded-md aspect-video"
+                  />
+                  <div>
+                    <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+                      {post.frontmatter.category}
+                    </span>
+                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                      {post.frontmatter.title}
+                    </h2>
+                    <div class="flex gap-2 mt-3">
+                      <span class="text-gray-400">
+                        {post.frontmatter.author}
+                      </span>
+                      <span class="text-gray-400">• </span>
+                      <time
+                        class="text-gray-400"
+                        datetime={post.frontmatter.publishDate}>
+                        {getFormattedDate(post.frontmatter.publishDate)}
+                      </time>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </Container>
+</Layout>

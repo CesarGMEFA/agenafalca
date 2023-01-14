@@ -1,0 +1,64 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+interface partner {
+  logo: string,
+  name: string,
+  description: string,
+}
+
+const partners: partner[] = [
+  {
+    logo: "partners/Logo_EO_1.webp",
+    name: "EO Imports",
+    description: "Empresa de servicios aduaneros con más de 30 años en el mercado que prestamos juridicción en todo el estado Falcón. Atiende a la aduana principal para-piedra Paraguana y sus 5 aguanas sub-alternas. Presta los servicios de tramite para importación, transito y todos los servicios aduaneros."
+  },
+  {
+    logo: "partners/Logo-Aguas-Tropicales.webp",
+    name: "Aguas Tropicales",
+    description: "Empresa que presta servicios en importación, exportación, preparación del producto, de frutas y productos del mar, maquiladora. Tiene la permisologia internacional, cumple con los estandares internacionales para poder exportar los productos con la mejor calidad."
+  },
+  {
+    logo: "partners/Logo-FREE_1.webp",
+    name: "FREE WORLD",
+    description: "Empresa de servicios aduaneros con juridicción en la aduana maritima de La Guaira y el aeropuesto internacional de Maiquetia en el estado Varga. Servicios en importación, exportación, consolidación y logística de carga y transito aduanero."
+  },
+  {
+    logo: "partners/SAN-ART-vzla.webp",
+    name: "SAN ART CAPITAL VZLA",
+    description: "Ornare cum cursus laoreet sagittis nunc fusce posuere per euismod dis vehicula a, semper fames lacus maecenas dictumst pulvinar neque enim non potenti. Torquent hac sociosqu eleifend potenti."
+  },
+]
+---
+
+<Layout title="Agenafalca" icon={"favicon.webp"}>
+	<main>
+		<Container>
+      <Sectionhead>
+        <Fragment slot="title">Nuestros Socios</Fragment>
+        <Fragment slot="desc">Tener aliados comerciales es una excelente manera de aumentar la visibilidad de una empresa, mejorar la calidad de los productos y servicios ofrecidos, aumentar la rentabilidad y reducir los costos. Esto se logra mediante la creación de relaciones de confianza entre las empresas, lo que permite aprovechar los recursos y conocimientos de cada una para mejorar la eficiencia y la competitividad. Los aliados comerciales también pueden ayudar a expandir el alcance de una empresa al permitir que se acceda a nuevos mercados y clientes.</Fragment>
+      </Sectionhead>
+      <ul class="grid gap-16 max-w-4xl mt-10 mx-auto">
+        {
+          partners.map((partner, index) => (
+            <li>
+              <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+                <img src={partner.logo} alt="Thumbnail"
+                  class="w-full rounded-md aspect-video"
+                />
+                <div>
+                  <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                    {partner.name}
+                  </h2>
+                  <p>{partner.description}</p>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+		</Container>
+	</main>
+</Layout>

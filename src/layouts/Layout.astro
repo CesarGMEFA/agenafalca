@@ -1,0 +1,48 @@
+---
+import Navbar from '@components/navbar.astro'
+import Footer from '@components/footer.astro'
+import "@fontsource/inter/variable.css";
+
+export interface Props {
+	title: string;
+	icon: string;
+}
+
+const { title, icon } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/webp" href={icon} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="dark:text-white dark:bg-agena-black">
+		<Navbar />
+		<slot />
+		<Footer />
+
+		<script is:inline>
+			const theme = (() => {
+				if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+					return localStorage.getItem("theme");
+				}
+				if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+					return "dark";
+				}
+				return "light";
+			})();
+		
+			if (theme === "light") {
+				document.documentElement.classList.remove("dark");
+			} else {
+				document.documentElement.classList.add("dark");
+			}
+			window.localStorage.setItem("theme", theme);
+		</script>
+		<script src="https://kit.fontawesome.com/1fc908d074.js" crossorigin="anonymous"></script>
+	</body>
+</html>

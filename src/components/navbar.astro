@@ -1,0 +1,67 @@
+---
+import Container from "@components/container.astro";
+import ButtonToggle from '@components/ThemeToggle'
+// import Link from "@components/ui/link.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+
+const menuitems = [
+  {
+    title: "Acerce de nosotros",
+    path: "/about",
+  },
+  {
+    title: "Blog",
+    path: "/blog",
+  },
+  {
+    title: "Contacto",
+    path: "/contact",
+  },
+  {
+    title: "Aliados",
+    path: "/partners",
+  },
+];
+---
+
+<Container>
+  <header class="flex flex-col md:flex-row justify-between items-center my-5 dark:bg-agena-black">
+    <Astronav>
+      <div class="flex w-full md:w-auto items-center justify-between">
+        <a href="/" class="text-md">
+          <span class="font-black text-agena-UIblue text-2xl sm:text-3xl">
+            AG<span class="text-agena-red">E</span>NAFALCA
+          </span>
+        </a>
+        <div class="flex items-center justify-between">
+          <div class="mr-3 md:hidden">
+            <ButtonToggle client:load/>
+          </div>
+          <div class="block md:hidden">
+            <MenuIcon class="w-5 h-5 text-gray-800 dark:text-white" />
+          </div>
+        </div>
+      </div>
+      <MenuItems class="hidden w-full md:w-auto mt-2 md:flex md:mt-0">
+        <ul class="flex flex-col md:flex-row md:gap-3">
+          {
+            menuitems.map((item, index) => (
+              <li>
+                <a
+                  href={item.path}
+                  class="flex md:px-3 py-2 hover:text-agena-red focus:text-agena-red">
+                  {item.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </MenuItems>
+    </Astronav>
+    <div>
+      <div class="hidden md:flex items-center gap-4">
+        <ButtonToggle client:load/>
+      </div>
+    </div>
+  </header>
+</Container>
