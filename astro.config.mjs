@@ -20,7 +20,7 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://CesarGMEFA.github.io',
+  site: 'https://agenafalca.vercel.app',
   integrations: [tailwind(), react(), sitemap(), mdx(), compress()],
   output: "server",
   adapter: vercel()
