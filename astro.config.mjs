@@ -16,7 +16,7 @@ import mdx from "@astrojs/mdx";
 import compress from "astro-compress";
 
 // https://astro.build/config
-import vercel from "@astrojs/vercel/serverless";
+import vercel from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
