@@ -9,7 +9,6 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.14.0",
